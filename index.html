@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Client | Get</title>
+    <style>
+        /* General body and page styling */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Title styling */
+        h1 {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 100px;
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 80px #ff0000, 0 0 10px #ff0000;
+        }
+
+
+        h2 {
+            top: -60px;
+            left: 10px; 
+            position: absolute;
+            margin-top: 100px;
+            font-size: 30px;
+            color: #ff0000;
+            display: inline-block;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+        }
+
+        h3 {
+            top: 770px;
+            right: 10px; 
+            position: absolute;
+            margin-top: 100px;
+            font-size: 30px;
+            color: #ff0000;
+            display: inline-block;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+        }
+
+        /* Glowing animated gradient text */
+        .gradient-text {
+            font-size: 30px;
+            background: linear-gradient(45deg, red, black, red);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientMove 3s ease infinite;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        /* Animation for gradient text */
+        @keyframes gradientMove {
+            0% { background-position: 0%; }
+            50% { background-position: 100%; }
+            100% { background-position: 0%; }
+        }
+
+        /* Glowing animated button */
+        .glow-button {
+            display: block;
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: black;
+            border: 2px solid red;
+            color: red;
+            font-size: 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .glow-button:hover {
+            background-color: red;
+            color: black;
+            box-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
+        }
+
+        /* More info button styling */
+        .info-button {
+            display: block;
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: black;
+            border: 2px solid red;
+            color: red;
+            font-size: 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .info-button:hover {
+            background-color: red;
+            color: black;
+            box-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
+        }
+
+        /* Floating particles styling */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: red;
+            animation: floatUp 10s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(0);
+            }
+        }
+
+
+
+        /*Gradient glowing text on top left*/
+        /* .floating-gradient-text {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(45deg, red, black, red);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientMove 3s ease infinite;
+            display: inline-block;
+
+        } */
+
+        .floating-gradient-text span {
+            display: block;
+            animation: floatDown 4s infinite;
+        }
+
+        @keyframes floatDown {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(30px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Aura Client</h1>
+
+    <h2>Aura Client | b14</h2>
+
+    <h3>phantom_1666</h3>
+
+    <!-- Glowing animated button -->
+    <button class="glow-button" onclick="window.location.href='https://discord.com/invite/your-discord-invite'">Join our Discord</button>
+
+    <!-- More Info Button -->
+    <button class="info-button" onclick="window.location.href='https://your-site.com/more-info'">More Info</button>
+
+    <!-- Floating particles -->
+    <script>
+        function createParticle() {
+            const particle = document.createElement('div');
+            const size = Math.random() * 10 + 5;
+            const initialPositionX = Math.random() * window.innerWidth;
+
+            // Set initial position near the bottom of the screen
+            particle.classList.add('particle');
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = initialPositionX + 'px';
+            particle.style.bottom = '0px'; // Start particles at the bottom
+
+            // Set random animation duration for the particles
+            const duration = Math.random() * 2 + 2; // Random duration between 2 and 4 seconds
+            particle.style.animationDuration = `${duration}s`;
+
+            document.body.appendChild(particle);
+
+            // Remove particle after animation ends
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000); // Remove after the animation duration (in ms)
+        }
+
+        setInterval(createParticle, 100); // Generate particles every 100ms
+    </script>
+
+</body>
+</html>
