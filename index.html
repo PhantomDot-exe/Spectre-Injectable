@@ -15,15 +15,27 @@
             color: white;
         }
 
+        /* Video styling */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            z-index: -1; /* Keeps the video behind everything */
+        }
+
         /* Title styling */
         h1 {
             text-align: center;
             margin-top: 100px;
             font-size: 100px;
-            color: #ff0000;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 80px #ff0000, 0 0 10px #ff0000;
+            color: #0077ff;
+            text-shadow: 0 0 10px #0099ff, 0 0 20px #00a2ff, 0 0 80px #00a2ff, 0 0 10px #00d9ff;
         }
-
 
         h2 {
             top: -60px;
@@ -31,9 +43,9 @@
             position: absolute;
             margin-top: 100px;
             font-size: 30px;
-            color: #ff0000;
+            color: #00c3ff;
             display: inline-block;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+            text-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff, 0 0 30px #00c3ff, 0 0 40px #00c3ff;
         }
 
         h3 {
@@ -42,80 +54,38 @@
             position: absolute;
             margin-top: 100px;
             font-size: 30px;
-            color: #ff0000;
+            color: #00c3ff;
             display: inline-block;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+            text-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff, 0 0 30px #00c3ff, 0 0 40px #00c3ff;
         }
 
-        /* Glowing animated gradient text */
-        .gradient-text {
-            font-size: 30px;
-            background: linear-gradient(45deg, red, black, red);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: gradientMove 3s ease infinite;
-            display: inline-block;
-            margin-left: 20px;
-        }
-
-        /* Animation for gradient text */
-        @keyframes gradientMove {
-            0% { background-position: 0%; }
-            50% { background-position: 100%; }
-            100% { background-position: 0%; }
-        }
-
-        /* Glowing animated button */
-        .glow-button {
-            display: block;
-            width: 300px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
-            background-color: black;
-            border: 2px solid red;
-            color: red;
-            font-size: 20px;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .glow-button:hover {
-            background-color: red;
-            color: black;
-            box-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
-        }
-
-        /* More info button styling */
-        .info-button {
+        /* Buttons and particles styling */
+        .glow-button, .info-button {
             display: block;
             width: 300px;
             margin: 20px auto;
             padding: 20px;
             text-align: center;
             background-color: black;
-            border: 2px solid red;
-            color: red;
+            border: 2px solid rgb(0, 204, 255);
+            color: rgb(0, 119, 255);
             font-size: 20px;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+            box-shadow: 0 0 10px rgb(0, 110, 255), 0 0 20px rgb(0, 162, 255), 0 0 30px rgb(0, 174, 255);
             transition: all 0.3s ease-in-out;
         }
 
-        .info-button:hover {
-            background-color: red;
+        .glow-button:hover, .info-button:hover {
+            background-color: rgb(0, 110, 255);
             color: black;
-            box-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
+            box-shadow: 0 0 20px rgb(0, 110, 255), 0 0 30px rgb(0, 110, 255), 0 0 40px rgb(0, 110, 255);
         }
 
-        /* Floating particles styling */
         .particle {
             position: absolute;
             border-radius: 50%;
-            background-color: red;
+            background-color: rgb(0, 110, 255);
             animation: floatUp 10s linear infinite;
         }
 
@@ -129,51 +99,28 @@
                 transform: translateY(-100vh) scale(0);
             }
         }
-
-
-
-        /*Gradient glowing text on top left*/
-        /* .floating-gradient-text {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: linear-gradient(45deg, red, black, red);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: gradientMove 3s ease infinite;
-            display: inline-block;
-
-        } */
-
-        .floating-gradient-text span {
-            display: block;
-            animation: floatDown 4s infinite;
-        }
-
-        @keyframes floatDown {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(30px);
-            }
-        }
-
     </style>
 </head>
 <body>
 
+    <audio id="background-music" autoplay loop>
+        <source src="beat.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
     <h1>Aura Client</h1>
-
     <h2>Aura Client | b14</h2>
-
     <h3>phantom_1666</h3>
 
-    <!-- Glowing animated button -->
     <button class="glow-button" onclick="window.location.href='https://github.com/PhantomDot-exe/Aura-Client-Invite-ONLY-/releases/download/AuraINVITE/Injector.zip'">Get Client</button>
-
-    <!-- More Info Button -->
     <button class="info-button" onclick="window.location.href='https://discord.gg/bnWZt87FWN'">Discord</button>
+
+    <!-- Background Video -->
+    <video id="background-video" autoplay loop muted>
+        <source src="AuraTest.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
     <!-- Floating particles -->
     <script>
@@ -182,26 +129,47 @@
             const size = Math.random() * 10 + 5;
             const initialPositionX = Math.random() * window.innerWidth;
 
-            // Set initial position near the bottom of the screen
             particle.classList.add('particle');
             particle.style.width = size + 'px';
             particle.style.height = size + 'px';
             particle.style.left = initialPositionX + 'px';
-            particle.style.bottom = '0px'; // Start particles at the bottom
+            particle.style.bottom = '0px';
 
-            // Set random animation duration for the particles
-            const duration = Math.random() * 2 + 2; // Random duration between 2 and 4 seconds
+            const duration = Math.random() * 2 + 2;
             particle.style.animationDuration = `${duration}s`;
 
             document.body.appendChild(particle);
 
-            // Remove particle after animation ends
             setTimeout(() => {
                 particle.remove();
-            }, duration * 1000); // Remove after the animation duration (in ms)
+            }, duration * 1000);
         }
 
-        setInterval(createParticle, 100); // Generate particles every 100ms
+        setInterval(createParticle, 100);
+
+        // Fade in the video after 10 seconds
+        setTimeout(() => {
+            const video = document.getElementById('background-video');
+            video.style.opacity = 1;
+        }, 10000);
+
+        // Audio fade-in
+        const audio = document.getElementById('background-music');
+        audio.volume = 0; // Start with volume at 0
+        const fadeDuration = 10150; // Duration of fade-in in milliseconds
+        const fadeInterval = 50; // Interval for volume increment
+
+        let currentVolume = 0;
+        const fadeStep = fadeInterval / fadeDuration;
+
+        const fadeAudioIn = setInterval(() => {
+            if (currentVolume < 1) {
+                currentVolume = Math.min(1, currentVolume + fadeStep);
+                audio.volume = currentVolume;
+            } else {
+                clearInterval(fadeAudioIn);
+            }
+        }, fadeInterval);
     </script>
 
 </body>
